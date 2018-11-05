@@ -1,4 +1,28 @@
-ffmpeg -version
+sudo zenity -h
+if [[ $? -eq 1 ]]; then
+    echo "Oops! É necessário que instale a extenssão 'zenity'."
+    clear
+    echo
+    echo ">> Tentanto instalar o 'zenity' automáticamente..."
+    sudo apt install zenity
+    if [[ $? -eq 0 ]]; then
+        clear
+        ytdown.sh
+        else
+            echo
+            echo "Oops! Tivemos uma falha ao tentar instalar o 'ffmpeg', tente instalar o zenity manualmente."
+            echo
+            read -p "> Deseja sair?:" rp
+            if [[ $rp = "y" || $rp = "yes" || $rp = "s" || $rp = "sim" ]]; then
+                exit
+                else
+                    clear
+                    ytdown.sh
+            fi
+    fi
+fi
+clear
+sudo ffmpeg -version
 if [[ $? -eq 1 ]]; then
     zenity --info --text="Oops! É necessário que instale a extenssão 'ffmpeg'." --title="YTDOWN"
     clear
@@ -108,6 +132,8 @@ clear
 echo "##################################"
 echo "###### Operação cancelada! #######"
 echo "##################################"
+echo
+echo "Encontrou um bug? Por favor reporte isso na aba do projeto: https://sourceforge.net/p/ytdown/discussion/"
 echo
 read -p "> Deseja executar novamente o YTDOWN?:" rp
 if [[ $rp = "y" || $rp = "yes" || $rp = "s" || $rp = "sim" ]]; then
