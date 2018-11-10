@@ -62,9 +62,21 @@ echo -------------------------------------------------------------
 #chmod -R a+rw ~/yt-video
 youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $link -o "~/yt-video/%(title)s.%(ext)s"
 if [[ $? -eq 1 ]]; then
-    zenity --info --text="Oops! Houve algum erro, tente novamente." --title="YTDOWN"
-    clear
-    ytdown.sh
+	clear
+	echo "#######################################"
+	echo "Falha recorrente!"
+	echo "Deseja tentar novamente ou atualizar o YTDOWN? (0: atualizar; 1: Tentar novamente)"
+	echo
+	read -p "Opção: " op
+	echo "#######################################"
+	if [[ $op -eq 0 ]]; then
+		echo "Atualizando o engine do YTDOWN..."
+		echo
+		sudo youtube-dl -U
+	elif [[ $op -eq 1 ]]; then
+		clear
+		ytdown.sh
+	fi
 else
     echo
     echo "###########################################################"
@@ -80,14 +92,26 @@ echo Download de $link para audio/FLAC:
 echo -------------------------------------------------------------
 youtube-dl -x --audio-format flac --audio-quality 0 $link -o "~/yt-music/%(title)s.%(ext)s"
 if [[ $? -eq 1 ]]; then
-    zenity --info --text="Oops! Houve algum erro, tente novamente." --title="YTDOWN"
-    clear
-    ytdown.sh
+	clear
+	echo "#######################################"
+	echo "Falha recorrente!"
+	echo "Deseja tentar novamente ou atualizar o YTDOWN? (0: atualizar; 1: Tentar novamente)"
+	echo
+	read -p "Opção: " op
+	echo "#######################################"
+	if [[ $op -eq 0 ]]; then
+		echo "Atualizando o engine do YTDOWN..."
+		echo
+		sudo youtube-dl -U
+	elif [[ $op -eq 1 ]]; then
+		clear
+		ytdown.sh
+	fi
 else
     echo
-    echo "###########################################################"
-    echo "###### O seu vídeo se encontra no diretório yt-music ######"
-    echo "###########################################################"
+    echo "############################################################"
+    echo "###### O seu música se encontra no diretório yt-music ######"
+    echo "############################################################"
 fi
 ;;
 "PLAYLIST VÍDEOS")
@@ -98,9 +122,21 @@ echo Download da playlist para video/MP4:
 echo -------------------------------------------------------------
 youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '~/yt-video/Playlists/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $link
 if [[ $? -eq 1 ]]; then
-    zenity --info --text="Oops! Houve algum erro, tente novamente." --title="YTDOWN"
-    clear
-    ytdown.sh
+	clear
+	echo "#######################################"
+	echo "Falha recorrente!"
+	echo "Deseja tentar novamente ou atualizar o YTDOWN? (0: atualizar; 1: Tentar novamente)"
+	echo
+	read -p "Opção: " op
+	echo "#######################################"
+	if [[ $op -eq 0 ]]; then
+		echo "Atualizando o engine do YTDOWN..."
+		echo
+		sudo youtube-dl -U
+	elif [[ $op -eq 1 ]]; then
+		clear
+		ytdown.sh
+	fi
 else
     echo
     echo "##################################################"
@@ -116,10 +152,21 @@ echo Download da playlist para audio/FLAC:
 echo -------------------------------------------------------------
 youtube-dl -x --audio-format flac --audio-quality 0 -o '~/yt-music/Playlists/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $link
 if [[ $? -eq 1 ]]; then
-    zenity --info --text="Oops! Houve algum erro, tente novamente." --title="YTDOWN"
-    clear
-    ytdown.sh
-    exit
+	clear
+	echo "#######################################"
+	echo "Falha recorrente!"
+	echo "Deseja tentar novamente ou atualizar o YTDOWN? (0: atualizar; 1: Tentar novamente)"
+	echo
+	read -p "Opção: " op
+	echo "#######################################"
+	if [[ $op -eq 0 ]]; then
+		echo "Atualizando o engine do YTDOWN..."
+		echo
+		sudo youtube-dl -U
+	elif [[ $op -eq 1 ]]; then
+		clear
+		ytdown.sh
+	fi
 else
     echo
     echo "##################################################"
