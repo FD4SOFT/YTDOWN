@@ -11,7 +11,7 @@ Obs: A instalação é para para grande parte das distuições Linux. Para disti
 
 1 - Abra o seu terminal ou use o atalho CTRL+ALT+T.
 
-2 -  Digite: sudo chmod 777 //usr/local/bin
+2 -  Digite: sudo chmod 755 //usr/local/bin
 
 2.1 - Digite sua senha e dê o 'enter'
 
