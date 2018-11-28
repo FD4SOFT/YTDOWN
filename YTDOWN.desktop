@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=YTDOWN
+GenericName=All downloads online
+X-GNOME-FullName=Ytdown - Downloads Online
+Comment= All downloads
+Exec=/usr/local/bin/ytdown.sh
+Icon=/usr/local/bin/i.ico
+Categories=Utility;
+Terminal=true
+Type=Application
+Keywords=download;
