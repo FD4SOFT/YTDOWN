@@ -23,5 +23,5 @@ basta abrir o terminal e digitar: ytdown.sh
 - Segunda opção:
 
 wget -c https://ufpr.dl.sourceforge.net/project/ytdown/YTDOWN.tar.gz
-sudo chmod 777 //usr/local/bin; sudo tar -xf YTDOWN.tar.gz -C //usr/local/bin; ytdown.sh
+sudo chmod 755 //usr/local/bin; sudo tar -xf YTDOWN.tar.gz -C //usr/local/bin; ytdown.sh
 
